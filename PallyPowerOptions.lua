@@ -385,6 +385,22 @@ PallyPower.options = {
 								PallyPower.opt.cBuffNeedAll.t = t
 							end,
 							hasAlpha = true
+						},
+						color_border = {
+							order = 4,
+							name = L["Tile Border"],
+							desc = L["Change the border color and opacity of all buff tiles"],
+							type = "color",
+							get = function()
+								local color = PallyPower.opt.cBorder
+								return color.r, color.g, color.b, color.t
+							end,
+							set = function(_, r, g, b, t)
+								local color = PallyPower.opt.cBorder
+								color.r, color.g, color.b, color.t = r, g, b, t
+								PallyPower:ApplyBorderColor()
+							end,
+							hasAlpha = true
 						}
 					}
 				}

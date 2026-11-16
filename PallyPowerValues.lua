@@ -30,6 +30,7 @@ PALLYPOWER_DEFAULT_VALUES = {
 			waitforpeople = true
 		},
 		border = "Blizzard Tooltip",
+		cBorder = {r = 1.0, g = 1.0, b = 1.0, t = 1.0},
 		buffscale = 0.90,
 		cBuffNeedAll = {r = 1.0, g = 0.0, b = 0.0, t = 0.5},
 		cBuffNeedSome = {r = 1.0, g = 1.0, b = 0.5, t = 0.5},
@@ -91,6 +92,7 @@ PALLYPOWER_OTHER_VALUES = {
 			waitforpeople = false
 		},
 		border = "Blizzard Tooltip",
+		cBorder = {r = 1.0, g = 1.0, b = 1.0, t = 1.0},
 		buffscale = 0.90,
 		cBuffNeedAll = {r = 1.0, g = 0.0, b = 0.0, t = 0.5},
 		cBuffNeedSome = {r = 1.0, g = 1.0, b = 0.5, t = 0.5},

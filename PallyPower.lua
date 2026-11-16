@@ -3484,6 +3484,8 @@ function PallyPower:UpdateOathTimer()
 				ot:SetSize(62, 34)
 				ot:SetPoint("TOPLEFT", anchor, "TOPRIGHT", 2, 0)
 				if BACKDROP_TOOLTIP_8_8_1111 then ot:SetBackdrop(BACKDROP_TOOLTIP_8_8_1111) end
+				local border = self.opt.cBorder
+				ot:SetBackdropBorderColor(border.r, border.g, border.b, border.t)
 				ot.icon:SetPoint("TOPLEFT", ot, "TOPLEFT", 4, -4)
 				ot.time:SetPoint("LEFT", ot.icon, "RIGHT", 2, 0)
 			end
@@ -4582,6 +4584,27 @@ function PallyPower:ApplySkin()
 				Mixin(pButton, BackdropTemplateMixin)
 			end
 			pButton:SetBackdrop(tmp)
+		end
+	end
+	self:ApplyBorderColor()
+end
+
+function PallyPower:ApplyBorderColor()
+	local color = self.opt.cBorder
+	local function apply(button)
+		if button then
+			button:SetBackdropBorderColor(color.r, color.g, color.b, color.t)
+		end
+	end
+	apply(self.auraButton)
+	apply(self.rfButton)
+	apply(self.autoButton)
+	apply(self.oathTimer)
+	for cbNum, cButton in ipairs(self.classButtons) do
+		apply(cButton)
+		apply(self.oathButtons and self.oathButtons[cbNum])
+		for _, pButton in ipairs(self.playerButtons[cbNum]) do
+			apply(pButton)
 		end
 	end
 end
